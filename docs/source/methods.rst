@@ -115,10 +115,12 @@ Effects
 
 .. code-block:: python
 
-  get_current_effect()    # Returns either name of current effect if available or *Solid*/*Static*/*Dynamic*.
-  list_effects()          # Returns a list of names of all available effects.
-  effect_exists(name)     # Helper method which determines whether the given string exists as an effect.
-  set_effect(name)        # Sets the current effect.
+  get_effect_detail(name)     # Returns a dictionary of the effect's details.
+  get_current_effect()        # Returns either name of current effect if available or *Solid*/*Static*/*Dynamic*.
+  get_current_effect_detail() # Returns a dictionary of the current effect's details.
+  list_effects()              # Returns a list of names of all available effects.
+  effect_exists(name)         # Helper method which determines whether the given string exists as an effect.
+  set_effect(name)            # Sets the current effect.
 
 Write Effect
 -------------------
