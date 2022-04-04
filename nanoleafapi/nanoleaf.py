@@ -425,6 +425,26 @@ class Nanoleaf():
         response = requests.get(self.url + "/effects/select")
         return json.loads(response.text)
 
+    def get_current_effect_detail(self) -> dict:
+        """Returns the details of the currently selected effect
+
+        :returns: A dictionary containing the details of the effect.
+        """
+        current_effect = self.get_current_effect()
+
+        data = {"write": {"command": "request", "animName": f"{current_effect}"}}
+        response = requests.put(self.url + "/effects", data=json.dumps(data))
+        return json.loads(response.text)
+
+    def get_effect_detail(self, effect_name : str) -> dict:
+        """Returns the details of the specified effect
+
+        :returns: A dictionary containing the details of the effect.
+        """
+        data = {"write": {"command": "request", "animName": f"{effect_name}"}}
+        response = requests.put(self.url + "/effects", data=json.dumps(data))
+        return json.loads(response.text)
+        
     def set_effect(self, effect_name : str) -> bool:
         """Sets the effect of the lights
 
